@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+/* NAVBAR */
+.navbar {
+    transition: all 0.3s ease;
+}
+.navbar-brand img {
+    height: 40px;
+    transition: height 0.3s ease;
+}
+.navbar.shrink {
+    padding: 0.5rem 1rem;
+}
+.navbar.shrink .navbar-brand img {
+    height: 25px;
+}
+/* Styles for the underline effect */
+.nav-link {
+    position: relative;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+.nav-link.hovered::after {
+    width: 100%;
+}
+.navbar-nav .nav-item + .nav-item {
+    margin-left: 2rem; /* Adjust the value as needed */
+}
+
+
+
+
+
+.dark-mode {
+    background-color: #343a40 !important;
+    color: white;
+}
