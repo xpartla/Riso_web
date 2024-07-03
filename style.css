@@ -1,3 +1,11 @@
+/*  FARBY
+MAIN - B5C18E / 8A9A5B
+Text - B99470
+Secondary - EADBC8 / C7B7A3
+BG - F1F1F1
+
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 *{
@@ -7,6 +15,7 @@
 /* NAVBAR */
 .navbar {
     transition: all 0.3s ease;
+    color: #8A9A5B;
 }
 .navbar-brand img {
     height: 40px;
@@ -24,7 +33,7 @@
 /* Styles for the underline effect */
 .nav-link {
     position: relative;
-    color: #B99470;
+    color: #8A9A5B;
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: bold;
@@ -52,7 +61,7 @@
 
 /* Language dropdown */
 .nav-link.dropdown-toggle {
-    color: #B99470;
+    color: #8A9A5B;
     cursor: pointer;
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -133,7 +142,7 @@
 
 /* MAIN SECTION */
 .main-section {
-    background: #f8f9fa; /* Light background color */
+    background: #F1F1F1; /* Light background color */
     padding: 3rem 0; /* Vertical padding */
     text-align: center; /* Center align for small screens */
 }
@@ -141,7 +150,7 @@
 .main-section h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #B5C18E;
+    color: #C7B7A3;
 }
 
 .main-section p {
@@ -155,7 +164,7 @@
     padding: 0.75rem 1.5rem;
 }
 .txt-rotate{
-    color: #DEAC80;
+    color: #B5C18E;
 }
 
 /* Trapezoid Image */
@@ -163,7 +172,7 @@
     max-width: 80%; /* Ensure the image is not too large */
     height: auto;
     clip-path: polygon(25% 0%, 99% 0%, 75% 100%, 1% 100%);
-    border: 5px solid #B99470;
+    border: 5px solid #B5C18E;
 }
 
 @media (max-width: 992px) {
@@ -217,7 +226,7 @@
 }
 
 #calculator p{
-    color: #DEAC80;
+    color: #B99470;
 }
 
 #calculator .form-label {
@@ -229,7 +238,7 @@
     width: 100%;
     padding: 0.75rem;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #F1F1F1;
     border-radius: 4px;
     margin-bottom: 1rem;
 }
@@ -246,7 +255,7 @@
 
 #feedback {
     font-size: 1rem;
-    color: #DEAC80;
+    color: #B99470;
     border-top: 1px solid #ddd;
     padding-top: 1rem;
     margin-top: 1rem;
@@ -254,7 +263,7 @@
 
 .calculator-section {
     padding: 20px;
-    background: #f9f9f9;
+    background: #F1F1F1;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease; /* Smooth transition */
@@ -269,8 +278,8 @@
 }
 
 .form-select:focus, .form-control:focus {
-    border-color: #DEAC80;
-    box-shadow: 0 0 8px rgba(185, 148, 112, 1);
+    border-color: #B5C18E;
+    box-shadow: 0 0 8px rgba(181, 193, 142, 1);
 }
 
 .btn-primary {
@@ -279,21 +288,22 @@
 }
 
 .btn-primary:hover {
-    background-color: #DEAC80;
+    background-color: #8A9A5B;
     transform: scale(1.05); /* Slightly scale up on hover */
-    border-color: #DEAC80;
+    border-color: #8A9A5B;
     color: white;
 
 }
 
 .btn-secondary{
-    background-color: #DEAC80;
-    border-color: #DEAC80;
+    background-color: #EADBC8;
+    border-color: #EADBC8;
+    color: black;
 }
 
 .btn-secondary:hover{
-    background-color: #B99470;
-    border-color: #B99470;
+    background-color: #C7B7A3;
+    border-color: #C7B7A3;
 }
 
 .calculator-button {
@@ -301,27 +311,27 @@
 }
 
 .calculator-button:hover {
-    background-color: #DEAC80;
+    background-color: #8A9A5B;
     transform: scale(1.05);
 }
 
 .btn-primary{
-    background-color: #F7DCB9;
-    border-color: #F7DCB9;
+    background-color: #B5C18E;
+    border-color: #B5C18E;
 }
 
 
 /*CUSTOMER CARDS*/
 
 #customer-types {
-    background-color: #f8f9fa;
+    background-color: #F1F1F1;
     padding: 3rem 0;
 }
 
 #customer-types h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #B5C18E;
+    color: #8A9A5B;
 }
 
 .customer-cards-container {
@@ -365,13 +375,13 @@
 }
 
 .customer-card .content p {
-    color: #DEAC80;
+    color: #B99470;
 }
 
 .scroll-arrow {
     background: transparent;
     border: none;
-    color: #B5C18E;
+    color: #8A9A5B;
     font-size: 2rem;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -381,7 +391,7 @@
 }
 
 .scroll-arrow:hover {
-    color: #B99470;
+    color: #B5C18E;
 }
 
 .scroll-arrow.left-arrow {
@@ -393,13 +403,13 @@
 }
 
 #benefits {
-    background-color: #ffffff;
+    background-color: white;
     padding: 3rem 0;
     text-align: center;
 }
 
 #benefits h2 {
-    color: #B5C18E;
+    color: #8A9A5B;
 }
 
 #benefits p {
@@ -409,7 +419,7 @@
 }
 
 .cta-section {
-    background-color: #f8f9fa;
+    background-color: white;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -418,7 +428,7 @@
 }
 
 .cta-section h3 {
-    color: #B5C18E;
+    color: #8A9A5B;
     margin-bottom: 1rem;
 }
 
@@ -429,8 +439,8 @@
 }
 
 .cta-button {
-    background-color: #F7DCB9;
-    color: #fff;
+    background-color: #8A9A5B;
+    color: black;
     border: none;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -440,5 +450,6 @@
 }
 
 .cta-button:hover {
-    background-color: #DEAC80;
+    background-color: #B5C18E;
+    color: white;
 }
