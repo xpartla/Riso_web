@@ -24,7 +24,7 @@
 /* Styles for the underline effect */
 .nav-link {
     position: relative;
-    color: #000;
+    color: #B99470;
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: bold;
@@ -39,7 +39,7 @@
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: #007bff;
+    background-color: #B5C18E;
     transition: width 0.3s ease;
 }
 
@@ -52,7 +52,7 @@
 
 /* Language dropdown */
 .nav-link.dropdown-toggle {
-    color: #000;
+    color: #B99470;
     cursor: pointer;
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -60,7 +60,7 @@
 }
 
 .nav-link.dropdown-toggle:hover {
-    color: #007bff;
+    color: #B5C18E;
 }
 
 /* Remove button styles */
@@ -70,7 +70,7 @@
 }
 
 .dropdown-item:hover {
-    background-color: #007bff;
+    background-color: #B5C18E;
     color: #fff;
 }
 
@@ -141,18 +141,21 @@
 .main-section h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #B5C18E;
 }
 
 .main-section p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: #666;
+    color: #B99470;
 }
 
 .main-section .btn-primary {
     font-size: 1rem;
     padding: 0.75rem 1.5rem;
+}
+.txt-rotate{
+    color: #DEAC80;
 }
 
 /* Trapezoid Image */
@@ -160,7 +163,7 @@
     max-width: 80%; /* Ensure the image is not too large */
     height: auto;
     clip-path: polygon(25% 0%, 99% 0%, 75% 100%, 1% 100%);
-    border: 5px solid #007bff;
+    border: 5px solid #B99470;
 }
 
 @media (max-width: 992px) {
@@ -177,3 +180,265 @@
 }
 
 
+/* CTA Section (Calculator) */
+.cta-container {
+    margin-top: 2rem;
+    text-align: right; /* Align text to the right */
+}
+
+.cta-container p {
+    font-size: 1rem;
+    color: #B99470;
+}
+
+.cta-container .btn-secondary {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Ensure the spacing is consistent */
+.main-section .col-lg-6 {
+    padding-bottom: 2rem; /* Optional: add extra padding if needed */
+}
+
+@media(max-width: 922px){
+    .cta-container{
+        text-align: center;
+    }
+}
+
+/* Calculator Section */
+
+#calculator {
+    scroll-margin-top: 70px;
+}
+#calculator h2 {
+    color: #B5C18E;
+}
+
+#calculator p{
+    color: #DEAC80;
+}
+
+#calculator .form-label {
+    font-weight: bold;
+    color: #B5C18E;
+}
+
+#calculator .form-select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+#calculator .btn-primary {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+#resultsChart {
+    max-width: 100%;
+    height: auto;
+}
+
+#feedback {
+    font-size: 1rem;
+    color: #DEAC80;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.calculator-section {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.calculator-section:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.form-select, .form-control {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #DEAC80;
+    box-shadow: 0 0 8px rgba(185, 148, 112, 1);
+}
+
+.btn-primary {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: #DEAC80;
+    transform: scale(1.05); /* Slightly scale up on hover */
+    border-color: #DEAC80;
+    color: white;
+
+}
+
+.btn-secondary{
+    background-color: #DEAC80;
+    border-color: #DEAC80;
+}
+
+.btn-secondary:hover{
+    background-color: #B99470;
+    border-color: #B99470;
+}
+
+.calculator-button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.calculator-button:hover {
+    background-color: #DEAC80;
+    transform: scale(1.05);
+}
+
+.btn-primary{
+    background-color: #F7DCB9;
+    border-color: #F7DCB9;
+}
+
+
+/*CUSTOMER CARDS*/
+
+#customer-types {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+}
+
+#customer-types h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #B5C18E;
+}
+
+.customer-cards-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.customer-cards-wrapper {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    flex: 1;
+    padding: 0 3rem; /* Adjust padding to ensure arrows are outside the content */
+}
+
+.customer-card {
+    flex: 0 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.customer-card:hover {
+    transform: scale(1.05);
+}
+
+.customer-card .icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.customer-card .content h4 {
+    margin-bottom: 0.5rem;
+    color: #B5C18E;
+}
+
+.customer-card .content p {
+    color: #DEAC80;
+}
+
+.scroll-arrow {
+    background: transparent;
+    border: none;
+    color: #B5C18E;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.scroll-arrow:hover {
+    color: #B99470;
+}
+
+.scroll-arrow.left-arrow {
+    left: -2rem; /* Position the left arrow outside the content */
+}
+
+.scroll-arrow.right-arrow {
+    right: -2rem; /* Position the right arrow outside the content */
+}
+
+#benefits {
+    background-color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+#benefits h2 {
+    color: #B5C18E;
+}
+
+#benefits p {
+    color: #B99470;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.cta-section {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: center;
+}
+
+.cta-section h3 {
+    color: #B5C18E;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    color: #B99470;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.cta-button {
+    background-color: #F7DCB9;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #DEAC80;
+}

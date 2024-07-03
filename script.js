@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(link, {
                 duration: 0.3,
                 scale: 1.1,
-                color: '#007bff',
+                color: '#B5C18E',
                 ease: 'power2.out'
             });
             link.classList.add('hovered');
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(link, {
                 duration: 0.3,
                 scale: 1,
-                color: '#000',
+                color: '#B99470',
                 ease: 'power2.out'
             });
             link.classList.remove('hovered');
@@ -180,5 +180,239 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.set(image, { clipPath: getClipPath().phase1 });
         isPhaseThree = false;
     });
+
+
+    // Smooth scroll to the calculator
+    const calculatorBtn = document.querySelector('.cta-container .btn-secondary');
+    calculatorBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#calculator').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+
+    //CALCULATOR FOR NOW
+    let resultsChart;
+
+    function createChart(labels, pessimistic, realistic, optimistic) {
+        const ctx = document.getElementById('resultsChart').getContext('2d');
+
+        if (resultsChart) {
+            resultsChart.destroy();
+        }
+
+        resultsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels, // Use dynamically generated labels
+                datasets: [
+                    {
+                        label: 'Pessimistic',
+                        data: pessimistic,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        fill: false
+                    },
+                    {
+                        label: 'Realistic',
+                        data: realistic,
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        fill: false
+                    },
+                    {
+                        label: 'Optimistic',
+                        data: optimistic,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    duration: 1250, // 2 seconds
+                    easing: 'easeInOutQuint'
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Years'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Outcome'
+                        }
+                    }
+                },
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                }
+            }
+        });
+    }
+
+    window.calculate = function() {
+        const goal = document.getElementById('goal').value;
+        const time = parseInt(document.getElementById('time').value, 10);
+        const cost = document.getElementById('cost').value;
+        const periodicity = document.getElementById('periodicity').value;
+        const strategy = document.getElementById('strategy').value;
+
+        // Generate years based on selected time range
+        const startYear = new Date().getFullYear();
+        const years = Array.from({length: time}, (v, i) => startYear + i);
+
+        // Mock calculation logic (replace with actual logic)
+        const pessimistic = years.map(() => Math.random() * 100);
+        const realistic = years.map(() => Math.random() * 100 + 50);
+        const optimistic = years.map(() => Math.random() * 100 + 100);
+
+        // Create or update the chart
+        createChart(years, pessimistic, realistic, optimistic);
+
+        // Feedback text based on selection (customize as needed)
+        const feedback = `Based on your selected goal of ${goal}, with a ${time} year timeline, ${cost} cost, and ${strategy} strategy, the estimated outcomes are displayed in the graph above.`;
+        document.getElementById('feedback').innerText = feedback;
+
+    };
+
+    //CUSTOMER CARDS
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const customerCardsWrapper = document.querySelector('.customer-cards-wrapper');
+
+    const scrollAmount = 300; // Adjust this value based on the desired scroll distance
+
+    leftArrow.addEventListener('click', () => {
+        customerCardsWrapper.scrollBy({
+            top: 0,
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    rightArrow.addEventListener('click', () => {
+        customerCardsWrapper.scrollBy({
+            top: 0,
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    // GSAP animations for hover effects
+    const customerCards = document.querySelectorAll('.customer-card');
+
+    customerCards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            gsap.to(card, { scale: 1.1, duration: 0.3 });
+        });
+
+        card.addEventListener('mouseout', () => {
+            gsap.to(card, { scale: 1, duration: 0.3 });
+        });
+    });
+
+    // CTA button click event
+    const ctaButton = document.querySelector('.cta-button');
+    ctaButton.addEventListener('click', () => {
+        window.location.href = '#'; // Replace with your actual meeting setup link
+    });
+
+    // GSAP animations for the benefits section
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('#benefits', {
+        opacity: 0,
+        duration: 1,
+        y: 50,
+        scrollTrigger: {
+            trigger: '#benefits',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    gsap.from('#benefits h2', {
+        opacity: 0,
+        duration: 1,
+        y: -30,
+        delay: 0.2,
+        scrollTrigger: {
+            trigger: '#benefits',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    gsap.from('#benefits p', {
+        opacity: 0,
+        duration: 1,
+        y: 30,
+        delay: 0.4,
+        scrollTrigger: {
+            trigger: '#benefits',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    gsap.from('.cta-section', {
+        opacity: 0,
+        duration: 1,
+        scale: 0.8,
+        delay: 0.6,
+        scrollTrigger: {
+            trigger: '#benefits',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    gsap.to('.cta-button', {
+        scale: 1.05,
+        duration: 0.5,
+        ease: 'power1.inOut',
+        repeat: -1,
+        yoyo: true,
+        scrollTrigger: {
+            trigger: '.cta-button',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    const icons = document.querySelectorAll('.icon img');
+    icons.forEach(icon => {
+        gsap.from(icon, {
+            opacity: 0,
+            duration: 1,
+            y: -20,
+            ease: 'bounce.out',
+            delay: 0.2,
+            scrollTrigger: {
+                trigger: icon,
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+    });
+
 
 });
