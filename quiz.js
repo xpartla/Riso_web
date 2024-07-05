@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionContainer = document.getElementById('questionContainer');
     const nextQuestionBtn = document.getElementById('nextQuestionBtn');
     const progressBar = document.getElementById('progressBar');
+    const quizComplete = document.querySelector('.quiz-complete');
+    const finalScore = document.getElementById('finalScore');
+    const feedbackForm = document.getElementById('feedbackForm');
 
     const questions = [
         {
@@ -32,17 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
             questionContainer.appendChild(questionElement);
 
             questionObj.choices.forEach((choice, index) => {
-                const choiceLabel = document.createElement('label');
-                choiceLabel.classList.add('d-block');
-
                 const choiceInput = document.createElement('input');
                 choiceInput.type = 'radio';
                 choiceInput.name = 'quizChoice';
                 choiceInput.value = choice;
                 choiceInput.id = `choice-${index}`;
 
+                const choiceLabel = document.createElement('label');
+                choiceLabel.classList.add('d-block', 'py-2');
                 choiceLabel.setAttribute('for', `choice-${index}`);
-                choiceLabel.appendChild(document.createTextNode(choice));
+                choiceLabel.textContent = choice;
+
                 questionContainer.appendChild(choiceInput);
                 questionContainer.appendChild(choiceLabel);
             });
@@ -86,12 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
             showQuestion();
             updateProgress();
         } else {
-            questionContainer.style.opacity = '0';
-            setTimeout(() => {
-                questionContainer.innerHTML = `<h2>You scored ${score} out of ${questions.length}</h2>`;
-                questionContainer.style.opacity = '1';
-                nextQuestionBtn.style.display = 'none';
-            }, 300);
+            quizContainer.style.display = 'none';
+            finalScore.innerHTML = `You scored ${score} out of ${questions.length}`;
+            quizComplete.style.display = 'block';
         }
+    });
+
+    feedbackForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const userEmail = document.getElementById('userEmail').value;
+        const userQuestion = document.getElementById('userQuestion').value;
+
+        if (!userEmail || !userQuestion) {
+            alert('Please fill in both fields!');
+            return;
+        }
+
+        // Simulate sending email - replace with actual email sending mechanism
+        alert(`Email sent to ${userEmail} with question: ${userQuestion}`);
+
+        feedbackForm.reset();
     });
 });
