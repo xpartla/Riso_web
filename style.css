@@ -618,6 +618,7 @@ BG - F1F1F1
     background-color: #EADBC8;
     border-color: #EADBC8;
     color: black;
+    margin-bottom: 1rem;
 }
 
 #filterBtn:hover {
@@ -638,4 +639,68 @@ BG - F1F1F1
 
 .secondary-bg{
     background-color: #352208;
+}
+
+
+/*  SERVICES PAGE   */
+
+.service-box {
+    position: relative;
+    perspective: 1000px;
+}
+
+.service-image-wrapper {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    height: 300px; /* Set a fixed height */
+    overflow: hidden;
+}
+
+.service-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire area */
+}
+
+.service-box:hover .service-image-wrapper {
+    transform: rotateY(180deg);
+}
+
+.service-image-front, .service-description {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.service-image-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.service-description {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    transform: rotateY(180deg);
+    text-align: center;
+    opacity: 0; /* Start with hidden description */
+    transition: opacity 0.8s; /* Smooth opacity transition */
+}
+
+.service-box:hover .service-description {
+    opacity: 1; /* Show description on hover */
+}
+
+.service-title {
+    margin-top: 10px;
+    text-align: center;
 }
