@@ -127,58 +127,63 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Image animation using GSAP
-    const image = document.querySelector('.main-section img');
-    let isPhaseThree = false;
-    gsap.from(image, {
-        scrollTrigger: {
-            trigger: image,
-            start: "top 80%",  // Starts animation when the top of the image hits 80% of the viewport height
-            toggleActions: "play none none none"
-        },
-        duration: 1,
-        opacity: 0,
-        y: 50,
-        ease: 'power2.out'
-    });
+    const images = document.querySelectorAll('.main-section img');
 
-    function getClipPath() {
-        if (window.matchMedia("(max-width: 992px)").matches) {
-            return {
-                phase1: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)',
-                phase2: 'polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)',
-                phase3: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)',
-            };
-        } else {
-            return {
-                phase1: 'polygon(25% 0%, 99% 0%, 75% 100%, 1% 100%)',
-                phase2: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)',
-                phase3: 'polygon(0% 0%, 75% 0%, 99% 100%, 25% 100%)'
-            };
-        }
-    }
+    images.forEach(image => {
+        let isPhaseThree = false;
 
-    image.addEventListener('mouseenter', () => {
-        gsap.to(image, {
-            duration: 0.5,
-            clipPath: getClipPath().phase2,
+        // Initial animation on scroll into view
+        gsap.from(image, {
+            scrollTrigger: {
+                trigger: image,
+                start: "top 80%",  // Starts animation when the top of the image hits 80% of the viewport height
+                toggleActions: "play none none none"
+            },
+            duration: 1,
+            opacity: 0,
+            y: 50,
             ease: 'power2.out'
         });
-    });
 
-    image.addEventListener('mouseleave', () => {
-        gsap.to(image, {
-            duration: 0.5,
-            clipPath: isPhaseThree ? getClipPath().phase1 : getClipPath().phase3,
-            ease: 'power2.out',
-            onComplete: () => {
-                isPhaseThree = !isPhaseThree;
+        function getClipPath() {
+            if (window.matchMedia("(max-width: 992px)").matches) {
+                return {
+                    phase1: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)',
+                    phase2: 'polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)',
+                    phase3: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)',
+                };
+            } else {
+                return {
+                    phase1: 'polygon(25% 0%, 99% 0%, 75% 100%, 1% 100%)',
+                    phase2: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)',
+                    phase3: 'polygon(0% 0%, 75% 0%, 99% 100%, 25% 100%)'
+                };
             }
-        });
-    });
+        }
 
-    window.addEventListener('resize', () => {
-        gsap.set(image, { clipPath: getClipPath().phase1 });
-        isPhaseThree = false;
+        image.addEventListener('mouseenter', () => {
+            gsap.to(image, {
+                duration: 0.5,
+                clipPath: getClipPath().phase2,
+                ease: 'power2.out'
+            });
+        });
+
+        image.addEventListener('mouseleave', () => {
+            gsap.to(image, {
+                duration: 0.5,
+                clipPath: isPhaseThree ? getClipPath().phase1 : getClipPath().phase3,
+                ease: 'power2.out',
+                onComplete: () => {
+                    isPhaseThree = !isPhaseThree;
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            gsap.set(image, { clipPath: getClipPath().phase1 });
+            isPhaseThree = false;
+        });
     });
 
 
@@ -415,6 +420,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    //ARTICLES
+    //SERVICES
+
+    // Title hover animation using GSAP
+    const titles = document.querySelectorAll('.services-section h2, .services-section h1');
+
+    titles.forEach(title => {
+        title.addEventListener('mouseenter', () => {
+            gsap.to(title, {
+                duration: 0.3,
+                color: '#78866B',
+                scale: 1.05,
+                ease: 'power2.out'
+            });
+        });
+
+        title.addEventListener('mouseleave', () => {
+            gsap.to(title, {
+                duration: 0.3,
+                color: '#333',
+                scale: 1,
+                ease: 'power2.out'
+            });
+        });
+    });
+
+
 
 });
