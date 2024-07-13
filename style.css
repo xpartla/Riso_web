@@ -729,6 +729,9 @@ BG - F1F1F1
     .services-section h1::before, .services-section h1::after {
         background-color: transparent;
     }
+    .services-section h2::before, .services-section h2::after{
+        background-color: transparent;
+    }
 }
 
 .services-section img {
@@ -740,4 +743,170 @@ BG - F1F1F1
 .services-section .btn-text{
     display: inline-block;
     padding-right: 2rem;
+}
+
+/*  ABOUT ME SECTION*/
+
+@keyframes showTopText {
+    0% { transform: translate3d(0, 100%, 0); }
+    40%, 60% { transform: translate3d(0, 50%, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+}
+@keyframes showBottomText {
+    0% { transform: translate3d(0, -100%, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+}
+.animated-title {
+    color: #222;
+    height: 60vmin;
+    left: 50%;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vmin;
+}
+.animated-title > div {
+    height: 50%;
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+}
+.animated-title > div div {
+    font-size: 8vmin;
+    padding: 2vmin 0;
+    position: relative;
+}
+.animated-title > div div span {
+    display: block;
+}
+.animated-title > div.text-top {
+    border-bottom: 1vmin solid #000;
+    top: 0;
+}
+.animated-title > div.text-top div {
+    animation: showTopText 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    bottom: 0;
+    transform: translate(0, 100%);
+}
+.animated-title > div.text-top div span:first-child {
+    color: #767676;
+}
+.animated-title > div.text-bottom {
+    bottom: 0;
+}
+.animated-title > div.text-bottom div {
+    animation: showBottomText 0.5s;
+    animation-delay: 1.75s;
+    animation-fill-mode: forwards;
+    top: 0;
+    transform: translate(0, -100%);
+}
+
+.faq-section {
+    margin-top: 20px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.faq-question {
+    font-weight: bold;
+    font-size: 3vmin;
+    color: #8A9A5B;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    font-size: 3vmin;
+    color: #352208;
+}
+
+.about-img {
+    max-height: 60vh;
+    display: block;
+    border-radius: 10px;
+}
+
+
+.image-hover-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-hover-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.image-hover-container:hover img {
+    transform: scale(1.05);
+}
+
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* Ignore pointer events to prevent losing hover state */
+    border-radius: 10px;
+}
+
+.image-hover-container:hover .hover-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hover-content p,
+.hover-content button {
+    margin: 10px;
+}
+
+.hover-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /*pointer-events: auto; /* Re-enable pointer events for the content inside */
+}
+
+.image-hover-container:hover .hover-hint {
+    opacity: 0;
+}
+
+.image-hover-container:not(:hover) .hover-hint {
+    opacity: 1;
+    animation: hint-animation 1.5s infinite;
+}
+
+@keyframes hint-animation {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10%);
+    }
 }
