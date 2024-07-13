@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(link, {
                 duration: 0.3,
                 scale: 1.1,
-                color: '#B5C18E',
+                color: 'var(--alt-secondary-color)',
                 ease: 'power2.out'
             });
             link.classList.add('hovered');
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(link, {
                 duration: 0.3,
                 scale: 1,
-                color: '#78866B',
+                color: 'var(--main-color)',
                 ease: 'power2.out'
             });
             link.classList.remove('hovered');
@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
         repeat: -1,
         yoyo: true,
         scrollTrigger: {
-            trigger: '.cta-button',
+            trigger: '#benefits',
             start: 'top 80%',
             toggleActions: 'play none none none'
         }

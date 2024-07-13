@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const questions = [
         {
-            question: "What is the capital of France?",
-            choices: ["Paris", "London", "Berlin", "Madrid"],
+            question: "Aké je hlavné mesto Francúzska?",
+            choices: ["Paríž", "Londýn", "Berlín", "Madrid"],
             correct: "Paris"
         },
         {
