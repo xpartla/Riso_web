@@ -15,7 +15,7 @@
 }
 
 body {
-    background-image: url('simple3.png');
+    background-image: url('simple4.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -782,6 +782,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 90vmin;
+    margin:auto;
 }
 .animated-title > div {
     height: 50%;
@@ -834,7 +835,7 @@ body {
 
 .faq-question {
     font-weight: bold;
-    font-size: 3vmin;
+    font-size: 25px;
     color: var(--alt-main-color);
 }
 
@@ -842,7 +843,7 @@ body {
     display: none;
     padding: 10px 0;
     border-top: 1px solid var(--alt-secondary-color);
-    font-size: 3vmin;
+    font-size: 20px;
     color: var(--dark-text-color);
 }
 
